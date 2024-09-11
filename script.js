@@ -1,23 +1,26 @@
-window.alert("オブジェクトの取得に成功")
-const element = document.getElementById("list1");
-console.log(element);
-
 const pullDownButton = document.getElementById("lists");
-pullDownButton.onmouseover = function() {
-    console.log("オン");
-};
-pullDownButton.onmouseout = function() {
-    console.log("アウト");
-};
-pullDownButton.onclick = function() {
-    console.log("プッシュ");
-};
+
 pullDownButton.addEventListener('mouseover', function(){
-    pullDownButton.setAttribute("style", "background-color:blue;")
+    this.setAttribute("style", "background-color:blue;")
+    console.log("オン")
 })
 pullDownButton.addEventListener('mouseout', function(){
-    pullDownButton.setAttribute("style", "background-color:red;")
+    this.setAttribute("style", "background-color:red;")
+    console.log("アウト")
 })
 pullDownButton.addEventListener('click', function(){
-    pullDownButton.setAttribute("style", "background-color:green;")
+    this.setAttribute("style", "background-color:green;")
+    console.log("プッシュ")
+})
+
+const pullDownParents = document.getElementById("pull-down");
+
+pullDownButton.addEventListener('click', function() {
+    if (pullDownParents.getAttribute("style") == "display:block;"){
+        pullDownParents.removeAttribute("style", "display:block;")
+        console.log("非表示")
+    } else {
+        pullDownParents.setAttribute("style", "display:block;")
+        console.log("表示")
+    }
 })
