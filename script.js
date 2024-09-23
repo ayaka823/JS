@@ -1,3 +1,4 @@
+function pullDown() {}
 const pullDownButton = document.getElementById("lists");
 
 pullDownButton.addEventListener('mouseover', function(){
@@ -24,3 +25,17 @@ pullDownButton.addEventListener('click', function() {
         console.log("表示")
     }
 })
+
+const pullDownChild = document.querySelectorAll(".pull-down-list")
+
+pullDownChild.forEach(function(list) {
+    list.addEventListener('click', function() {
+        const value = list.innerHTML
+        currentList.innerHTML = value
+        console.log(value)
+    })
+})
+
+const currentList = document.getElementById("current-list")
+
+window.addEventListener('load', pullDown)
